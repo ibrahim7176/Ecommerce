@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('dashboard');
-});
+})->name('dashboard');
 Route::get('/shop', [shopController::class, 'index'])->name('shop.index');
 Route::get('/shop/aboute', [shopController::class, 'aboute'])->name('shop.aboute');
 Route::get('/logout', [logoutController::class, 'getout'])->name('user.logout');
@@ -34,9 +34,9 @@ Route::get('/products/{id}/edit', [productsController::class, 'edit'])->name('pr
 Route::put('/products/{id}', [productsController::class, 'update'])->name('products.update')->middleware('auth');
 Route::delete('/products/{id}', [productsController::class, 'destroy'])->name('products.destroy');
 
-Route::fallback(function () {
-    return '<h1>Something went wrong pleas try again</h1>';
-});
+// Route::fallback(function () {
+//     return '<h1>Something went wrong pleas try again</h1>';
+// });
 
 
 

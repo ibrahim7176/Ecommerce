@@ -13,13 +13,13 @@
       <link rel="shortcut icon" href="images/favicon.png" type="">
       <title>Famms - Fashion HTML Template</title>
       <!-- bootstrap core css -->
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="{{ asset('home/css/bootstrap.css') }}" />
       <!-- font awesome style -->
-      <link href="css/font-awesome.min.css" rel="stylesheet" />
+      <link href="{{ asset('home/css/font-awesome.min.css') }}" rel="stylesheet" />
       <!-- Custom styles for this template -->
-      <link href="css/style.css" rel="stylesheet" />
+      <link href="{{ asset('home/css/style.css') }}" rel="stylesheet" />
       <!-- responsive style -->
-      <link href="css/responsive.css" rel="stylesheet" />
+      <link href="{{ asset('home/css/responsive.css') }}" rel="stylesheet" />
    </head>
    <body class="sub_page">
       <div class="hero_area">
@@ -27,7 +27,7 @@
          <header class="header_section">
             <div class="container">
                <nav class="navbar navbar-expand-lg custom_nav-container ">
-                  <a class="navbar-brand" href="index.html"><img width="250" src="images/logo.png" alt="#" /></a>
+                  <a class="navbar-brand" href="index.html"><img width="250" src="{{ asset('images/logo.png') }}" alt="#" /></a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class=""> </span>
                   </button>
@@ -386,7 +386,7 @@
          <div class="container">
             <div class="box">
                <div class="arrival_bg_box">
-                  <img src="images/arrival-bg.png" alt="">
+                  <img src="{{ asset('images/arrival-bg.png') }}" alt="">
                </div>
                <div class="row">
                   <div class="col-md-6 ml-auto">
@@ -487,12 +487,12 @@
       </footer>
       <!-- footer section -->
       <!-- jQery -->
-      <script src="js/jquery-3.4.1.min.js"></script>
+      <script src="{{ asset('home/js/jquery-3.4.1.min.js') }}"></script>
       <!-- popper js -->
-      <script src="js/popper.min.js"></script>
+      <script src="{{ asset('home/js/popper.min.js') }}"></script>
       <!-- bootstrap js -->
-      <script src="js/bootstrap.js"></script>
+      <script src="{{ asset('home/js/bootstrap.js') }}"></script>
       <!-- custom js -->
-      <script src="js/custom.js"></script>
+      <script src="{{ asset('home/js/custom.js') }}"></script>
    </body>
 </html>
