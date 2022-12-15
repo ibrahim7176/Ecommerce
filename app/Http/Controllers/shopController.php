@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class shopController extends Controller
 {
@@ -14,13 +15,25 @@ class shopController extends Controller
      */
     public function index()
     {
+        $admin = Auth::user()->admin;
+        if ($admin == 1) {
+            return view('admin.dashboard');
+        } else {
 
-
-        return view('home.index');
+            return view('home.index');
+        }
     }
     public function aboute()
     {
         return view('home.aboute');
+    }
+    public function products()
+    {
+        return view('home.products');
+    }
+    public function admin($id)
+    {
+        return view();
     }
     /**
      * Show the form for creating a new resource.

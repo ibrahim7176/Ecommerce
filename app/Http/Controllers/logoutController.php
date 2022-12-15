@@ -20,6 +20,6 @@ class logoutController extends Controller
 
         Auth::logout();
 
-        return view('home.index');
+        return view('dashboard');
     }
 }
