@@ -12,7 +12,7 @@ class logoutController extends Controller
     public function adminview()
     {
 
-        return view('dashboard');
+        return view('shop.index');
     }
     public function getout()
     {
@@ -20,6 +20,6 @@ class logoutController extends Controller
 
         Auth::logout();
 
-        return view('dashboard');
+        return view('welcome');
     }
 }

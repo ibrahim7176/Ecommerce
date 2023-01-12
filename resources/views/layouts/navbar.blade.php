@@ -14,7 +14,7 @@
                 {{-- <a class="navbar-brand" href="#">
                     <img src="C:\Users\2022\Desktop\some projects\3534.png_860.png" alt="Bootstrap" width="30" height="24">
                 </a> --}}
-                <a class="navbar-brand" href="#">Salt3</a>
+                <a class="navbar-brand" href="#">{{Auth::user()->name}}</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -24,10 +24,6 @@
                         <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="{{route('dashboard')}}">Dashboard</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                       
                     </ul>
 
                     <form class="d-flex" role="search">

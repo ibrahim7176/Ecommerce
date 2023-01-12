@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminConroller;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\productsController;
 use App\Http\Controllers\shopController;
@@ -29,6 +30,7 @@ Route::get('/logout', [logoutController::class, 'getout'])->name('user.logout');
 Route::get('/shop/products', [shopController::class, 'products'])->name('shop.products');
 Route::get('/shop/adminDashboard', [shopController::class, 'admin'])->name('shop.admin');
 
+Route::get('/admin/catagory', [AdminConroller::class, 'catagory'])->name('admin.catagory');
 
 Route::get('/products', [productsController::class, 'index'])->name('products.index');
 Route::get('/products/create', [productsController::class, 'create'])->name('products.create')->middleware('auth');

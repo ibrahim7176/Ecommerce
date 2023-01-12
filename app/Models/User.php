@@ -25,7 +25,13 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    /**
+     * difault value for admin column admin 
+     *
+     */
+    protected $attributes = [
+        'admin' => '0',
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *
