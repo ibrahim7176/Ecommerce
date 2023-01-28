@@ -24,13 +24,16 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::get('/shop', [shopController::class, 'index'])->name('shop.index');
-Route::get('/shop/aboute', [shopController::class, 'aboute'])->name('shop.aboute');
-Route::get('/logout', [logoutController::class, 'getout'])->name('user.logout');
-Route::get('/shop/products', [shopController::class, 'products'])->name('shop.products');
-Route::get('/shop/adminDashboard', [shopController::class, 'admin'])->name('shop.admin');
 
-Route::get('/admin/catagory', [AdminConroller::class, 'catagory'])->name('admin.catagory');
+
+Route::get('/shop', [shopController::class, 'index'])->name('shop.index');
+Route::get('/shop/admin', [shopController::class, 'admin'])->name('shop.admin');
+Route::get('/shop/catagory', [shopController::class, 'index'])->name('shop.catagory');
+Route::get('/shop/aboute', [shopController::class, 'aboute'])->name('shop.aboute');
+Route::get('/shop/products', [shopController::class, 'products'])->name('shop.products');
+Route::get('/logout', [logoutController::class, 'getout'])->name('user.logout');
+
+
 
 Route::get('/products', [productsController::class, 'index'])->name('products.index');
 Route::get('/products/create', [productsController::class, 'create'])->name('products.create')->middleware('auth');
