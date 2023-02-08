@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\AdminConroller;
+
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\productsController;
 use App\Http\Controllers\shopController;
@@ -27,22 +28,22 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/shop', [shopController::class, 'index'])->name('shop.index');
-Route::get('/shop/admin', [shopController::class, 'admin'])->name('shop.admin');
-Route::get('/shop/catagory', [shopController::class, 'index'])->name('shop.catagory');
+Route::get('/shop/catagory', [adminController::class, 'catagory'])->name('admin.catagory');
 Route::get('/shop/aboute', [shopController::class, 'aboute'])->name('shop.aboute');
 Route::get('/shop/products', [shopController::class, 'products'])->name('shop.products');
+Route::post('/shop/catagory/add_catagory', [adminController::class, 'add_catagory'])->name("admin.add_catagory");
 Route::get('/logout', [logoutController::class, 'getout'])->name('user.logout');
+Route::delete('/shop/catagory/{id}', [adminController::class, 'delete_catagry'])->name('delete_catagry');
+Route::get('/shop/catagory/products', [adminController::class, 'view_products'])->name('view_products');
+Route::post('/shop/catagory/add_product', [adminController::class, 'add_product'])->name('add_product');
 
-
-
-Route::get('/products', [productsController::class, 'index'])->name('products.index');
-Route::get('/products/create', [productsController::class, 'create'])->name('products.create')->middleware('auth');
-Route::post('/products', [productsController::class, 'store'])->name('products.store');
-Route::get('/products/{id}', [productsController::class, 'show'])->where(['id' => '[0-9]+'])->name('products.show');
-Route::get('products/restore/', [productsController::class, 'restore'])->name('products.restore');
-Route::get('/products/{id}/edit', [productsController::class, 'edit'])->name('products.edit');
-Route::put('/products/{id}', [productsController::class, 'update'])->name('products.update')->middleware('auth');
-Route::delete('/products/{id}', [productsController::class, 'destroy'])->name('products.destroy');
+// Route::get('/products/create', [productsController::class, 'create'])->name('products.create')->middleware('auth');
+// Route::post('/products', [productsController::class, 'store'])->name('products.store');
+// Route::get('/products/{id}', [productsController::class, 'show'])->where(['id' => '[0-9]+'])->name('products.show');
+// Route::get('products/restore/', [productsController::class, 'restore'])->name('products.restore');
+// Route::get('/products/{id}/edit', [productsController::class, 'edit'])->name('products.edit');
+// Route::put('/products/{id}', [productsController::class, 'update'])->name('products.update')->middleware('auth');
+// Route::delete('/products/{id}', [productsController::class, 'destroy'])->name('products.destroy');
 
 // Route::fallback(function () {
 //     return '<h1>Something went wrong pleas try again</h1>';

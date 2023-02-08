@@ -41,13 +41,50 @@
   <div class="main-panel">
     <div class="content-wrapper">
         <div class="text-center">
-            <h2>Add Catagory</h2>
-            <form action="{{route('admin.add_catagory')}}" method="post">
+            <h2>Add product</h2>
+            <form action="{{route('add_product')}}" method="POST" enctype="multipart/form-data">
               @csrf
-                <input type="text" name="catagory" placeholder="add catagory" >
-                <input type="submit" value="submit">
+                <div>
+                    <label>product title </label>
+                    <input type="text" name="title" placeholder="write a title" required >
+                </div>
+
+                <div>
+                    <label>product catagory </label>
+                    <select required name="catagory">
+                        <option value="add catagory " selected>add catagory</option>
+                        @foreach($catagory as $catagory)
+                        <option value="{{$catagory->catagory_name}}">{{$catagory->catagory_name}}</option>  
+                        @endforeach  
+                      </select>
+                  </div>
+                
+                <div>
+                    <label>product price </label>
+                    <input type="number" min="0" name="price" placeholder="write a price" required >
+                </div>
+
+                <div>
+                    <label>product description </label>
+                    <input type="text" name="description" placeholder="write a description" required >
+                </div>
+
+                <div>
+                    <label>product Quantity </label>
+                    <input type="number" name="quantity" min="0" required placeholder="write a quantity" >
+                </div>
+
+                <div>
+                    <label>product discount price </label>
+                    <input type="number" min="0" name="discount_price" placeholder="write a discount" >
+                </div>
+                <div>
+                    <label>product Image </label>
+                    <input type="file" name="image" required >
+                </div>
+                <input type="submit" value="add product " class="btn btn-primary">
             </form>
-            <table class="table">
+            {{-- <table class="table">
               <thead>
                 <tr>
                   <th scope="col"> catagory</th>
@@ -68,7 +105,7 @@
                   </tr>
                 @endforeach
                 </tbody>
-              </table>
+              </table> --}}
         </div>
     </div>
   </div>

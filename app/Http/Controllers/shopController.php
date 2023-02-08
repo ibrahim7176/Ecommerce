@@ -31,10 +31,7 @@ class shopController extends Controller
     {
         return view('home.products');
     }
-    public function catagory()
-    {
-        return view('admin.catagory');
-    }
+
     // public function admin()
     // {
     //     return view('admin.dashboard');
