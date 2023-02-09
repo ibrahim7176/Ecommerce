@@ -36,6 +36,7 @@ Route::get('/logout', [logoutController::class, 'getout'])->name('user.logout');
 Route::delete('/shop/catagory/{id}', [adminController::class, 'delete_catagry'])->name('delete_catagry');
 Route::get('/shop/catagory/products', [adminController::class, 'view_products'])->name('view_products');
 Route::post('/shop/catagory/add_product', [adminController::class, 'add_product'])->name('add_product');
+Route::get('/shop/catagory/show_products', [adminController::class, 'show_products'])->name('show_products');
 
 // Route::get('/products/create', [productsController::class, 'create'])->name('products.create')->middleware('auth');
 // Route::post('/products', [productsController::class, 'store'])->name('products.store');

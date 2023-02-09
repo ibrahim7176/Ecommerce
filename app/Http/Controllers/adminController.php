@@ -33,6 +33,7 @@ class adminController extends Controller
     }
     public function add_product(Request $request)
     {
+        // product::create($request->all());
         $product = new product;
         $product->title = $request->title;
         $product->description = $request->description;
@@ -48,5 +49,10 @@ class adminController extends Controller
 
         $product->save();
         return redirect()->back();
+    }
+    public function show_products()
+    {
+        $products =  product::all();
+        return view('admin.show_products', compact('products'));
     }
 }
