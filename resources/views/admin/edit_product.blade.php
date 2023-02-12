@@ -28,19 +28,8 @@
     <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon.png')}}"/>
-    <style>
-        table.table td img{
-            width: 100%;
-            height: auto;
-            border-radius: 0;
-            width:40vh;
-            height: 25%;
-        }
-        table.table{
-          color: white;
-        }
-    </style>
-  </head>
+  
+</head>
   <div class="container-scroller">
     <!-- partial:partials/_sidebar.html -->
     @include('admin.sidebar')
@@ -53,38 +42,58 @@
   <div class="main-panel">
     <div class="content-wrapper">
         <div class="text-center">
-           <table class="table">
-            <thead>
-                <th scope="col">Product title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Catagory</th>
-                <th scope="col">Price</th>
-                <th scope="col">Discount Price</th>
-                <th scope="col">Product Image</th>
-                <th scope="col">Action</th>
-            </thead>
-            <tbody>
-                @foreach($products as $product)
-                <tr>
-                    <td scope="row">{{$product->title}}</td>
-                    <td>{{$product->description}}</td>
-                    <td>{{$product->quantity}}</td>
-                    <td>{{$product->category}}</td>
-                    <td>{{$product->price}}</td>
-                    <td>{{$product->discount_price}}</td>
-                    <td>
-                       <img src="/product/{{$product->image}}" >
-                    </td>
-                    <td>
-                      <a class="btn btn-primary" href="{{route('edit_product',$product->id)}}">Edit</a>
-                      <a class="btn btn-danger" href="{{route('delete_product',$product->id)}}">Delete</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-           </table>
+            <h2>edit product</h2>
+            <form action="{{route('update_product',$product->id)}}" method="POST" enctype="multipart/form-data">
+            @method('PUT')
+              @csrf
+                <div>
+                    <label>product title </label>
+                    <input type="text" name="title" placeholder="write a title" value="{{$product->title}}" >
+                </div>
+
+                <div>
+                    <label>product catagory </label>
+                    <select required name="catagory">
+                        <option value="add catagory " selected>{{$product->category}}</option>
+                        @foreach($catagory as $catagory)
+                        <option value="{{$catagory->catagory_name}}">{{$catagory->catagory_name}}</option>  
+                        @endforeach  
+                      </select>
+                  </div>
+                
+                <div>
+                    <label>product price </label>
+                    <input type="number" min="0" name="price" placeholder="write a price" value="{{$product->price}}" >
+                </div>
+
+                <div>
+                    <label>product description </label>
+                    <input type="text" name="description" placeholder="write a description" value="{{$product->description}}">
+                </div>
+
+                <div>
+                    <label>product Quantity </label>
+                    <input type="number" name="quantity" min="0" value="{{$product->quantity}}" placeholder="write a quantity" >
+                </div>
+
+                <div>
+                    <label>product discount price </label>
+                    <input type="number" min="0" name="discount_price" placeholder="write a discount" value="{{$product->discount_price}}" >
+                </div>
+                <div>
+                    <label>current Image</label>
+                    <img height="100" style="margin: auto;" width="100" src="/product/{{$product->image}}">
+
+                </div>
+                <div>
+                    <label>change Image </label>
+                    <input type="file" name="image"  >
+                </div>
+                <input type="submit" value="Update Product" class="btn btn-primary">
+            </form>
         </div>
+    </div>
+  </div>
     <!-- partial -->
     </div>
     <!-- main-panel ends -->

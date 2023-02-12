@@ -20,6 +20,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('show_cart')}}">Cart</a>
+                    </li>
                     @if (Route::has('login'))
                         @auth
                         <li class="nav-item px-2" >

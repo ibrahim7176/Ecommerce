@@ -31,12 +31,23 @@ Route::get('/shop', [shopController::class, 'index'])->name('shop.index');
 Route::get('/shop/catagory', [adminController::class, 'catagory'])->name('admin.catagory');
 Route::get('/shop/aboute', [shopController::class, 'aboute'])->name('shop.aboute');
 Route::get('/shop/products', [shopController::class, 'products'])->name('shop.products');
-Route::post('/shop/catagory/add_catagory', [adminController::class, 'add_catagory'])->name("admin.add_catagory");
+Route::post('/shop/add_cart/{id}', [shopController::class, 'add_cart'])->name('add_cart');
+Route::get('/shop/show_cart', [shopController::class, 'show_cart'])->name('show_cart');
+Route::get('/shop/remove_cart/{id}', [shopController::class, 'remove_cart'])->name('remove_cart');
+Route::get('/shop/cash_order', [shopController::class, 'cash_order'])->name('cash_order');
+
 Route::get('/logout', [logoutController::class, 'getout'])->name('user.logout');
+
+Route::post('/shop/catagory/add_catagory', [adminController::class, 'add_catagory'])->name("admin.add_catagory");
+
 Route::delete('/shop/catagory/{id}', [adminController::class, 'delete_catagry'])->name('delete_catagry');
 Route::get('/shop/catagory/products', [adminController::class, 'view_products'])->name('view_products');
 Route::post('/shop/catagory/add_product', [adminController::class, 'add_product'])->name('add_product');
 Route::get('/shop/catagory/show_products', [adminController::class, 'show_products'])->name('show_products');
+Route::get('/shop/catagory/edit_product/{id}', [adminController::class, 'edit_product'])->name('edit_product');
+Route::put('/shop/catagory/update_product/{id}', [adminController::class, 'update_product'])->name('update_product');
+Route::delete('/shop/catagory/delete_product/{id}', [adminController::class, 'delete_product'])->name('delete_product');
+
 
 // Route::get('/products/create', [productsController::class, 'create'])->name('products.create')->middleware('auth');
 // Route::post('/products', [productsController::class, 'store'])->name('products.store');
