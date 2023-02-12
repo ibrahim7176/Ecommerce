@@ -35,6 +35,9 @@ Route::post('/shop/add_cart/{id}', [shopController::class, 'add_cart'])->name('a
 Route::get('/shop/show_cart', [shopController::class, 'show_cart'])->name('show_cart');
 Route::get('/shop/remove_cart/{id}', [shopController::class, 'remove_cart'])->name('remove_cart');
 Route::get('/shop/cash_order', [shopController::class, 'cash_order'])->name('cash_order');
+Route::get('/shop/stripe/{totalprice}', [shopController::class, 'stripe'])->name('stripe');
+Route::post('shop/stripe/pay/{totalprice}', [shopController::class, 'stripepost'])->name('stripe.post');
+
 
 Route::get('/logout', [logoutController::class, 'getout'])->name('user.logout');
 
@@ -47,7 +50,8 @@ Route::get('/shop/catagory/show_products', [adminController::class, 'show_produc
 Route::get('/shop/catagory/edit_product/{id}', [adminController::class, 'edit_product'])->name('edit_product');
 Route::put('/shop/catagory/update_product/{id}', [adminController::class, 'update_product'])->name('update_product');
 Route::delete('/shop/catagory/delete_product/{id}', [adminController::class, 'delete_product'])->name('delete_product');
-
+Route::get('shop/catagory/Orders', [adminController::class, 'show_orders'])->name('admin.orders');
+Route::get('shop/catagory/delivered/{id}', [adminController::class, 'delivered'])->name('delivered');
 
 // Route::get('/products/create', [productsController::class, 'create'])->name('products.create')->middleware('auth');
 // Route::post('/products', [productsController::class, 'store'])->name('products.store');

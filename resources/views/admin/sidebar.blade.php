@@ -87,5 +87,14 @@
           <span class="menu-title">categores</span>
         </a>
       </li>
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{route('admin.orders')}}">
+          <span class="menu-icon">
+            <i class="mdi mdi-playlist-play"></i>
+          </span>
+          <span class="menu-title">Orders</span>
+        </a>
+      </li>
       
   </nav>

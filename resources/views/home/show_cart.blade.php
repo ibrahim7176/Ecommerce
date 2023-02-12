@@ -77,7 +77,7 @@
                     <td>Prodceed to Order</td>
                     <td>
                         <a href="{{route('cash_order')}}" class="btn btn-info">Cash On Delivery</a>
-                        <a href="" class="btn btn-success">Pay Using Card</a>
+                        <a href="{{route('stripe',$totalprice)}}" class="btn btn-success">Pay Using Card</a>
                     </td>
                  </tr>
              </tbody>
